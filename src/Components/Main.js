@@ -6,8 +6,12 @@ export default class Main extends Component {
     render() {
         return (
             <ul className="main">
-                <NoteList />
-                <NoteItem />
+                <NoteList 
+                  store={this.props.store}
+                />
+                <NoteItem 
+                  store={this.props.store}
+                />
             </ul>
         )
     }

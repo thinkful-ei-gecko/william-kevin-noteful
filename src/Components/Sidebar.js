@@ -7,8 +7,12 @@ export default class Sidebar extends Component {
     render() {
         return (
            <ul className="sidebar">
-               <FolderList />
-               <FolderItem />
+               <FolderList 
+                  store={this.props.store}
+                />
+               <FolderItem 
+                 store={this.props.store}
+               />
            </ul>
         )
     }
