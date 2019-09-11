@@ -24,11 +24,11 @@ export default class App extends Component {
       <div className="app">
         <Header />
         <Sidebar>
-          <Route path="/" component={FolderList} />
+          <Route exact path="/" component={FolderList} />
           <Route path="/folder/:folderId" component={FolderItem} />
         </Sidebar>
         <Main>
-          <Route path="/" component={NoteList} />
+          <Route exact path="/" component={NoteList} />
           <Route path="/note/:noteId" component={NoteItem} />
         </Main>
       </div>
