@@ -26,15 +26,31 @@ export default class App extends Component {
         <Header />
         <Sidebar>
           <Switch>
-            <Route exact path="/" component={FolderList} />
-            <Route path="/folder/:folderId" component={FolderItem} />
+            <Route exact path="/"
+              render={() =>
+                <FolderList store={this.state.store} />
+              }
+            />
+            <Route path="/folder/:folderId"
+              render={() =>
+                <FolderItem store={this.state.store} />
+              }
+            />
             <Route component={NotFound} />
           </Switch>
         </Sidebar>
         <Main>
           <Switch>
-            <Route exact path="/" component={NoteList} />
-            <Route path="/note/:noteId" component={NoteItem} />
+            <Route exact path="/"
+              render={() =>
+                <NoteList store={this.state.store} />
+              }
+            />
+            <Route path="/note/:noteId"
+              render={() =>
+                <NoteItem store={this.state.store} />
+              }
+            />
             <Route component={NotFound} />
           </Switch>
         </Main>
