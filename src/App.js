@@ -10,13 +10,6 @@ import NoteList from "./Components/NoteList";
 import NoteDetailedView from "./Components/NoteDetailedView";
 import NotFound from "./Components/NotFound";
 
-/* <FolderDetailedView
-  folder={this.state.store.folders.find(
-    folder => folder.id === routeProps.match.params.folderId
-  )}
-  routeProps={routeProps}
-  /> */
-
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +20,6 @@ export default class App extends Component {
   }
 
   render() {
-    // console.log(this.state.store);
     return (
       <div className="app">
         <Header />
