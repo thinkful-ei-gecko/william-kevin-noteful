@@ -1,13 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class NoteItem extends Component {
     render() {
       const { id, name, modified, folderId, content } = this.props.note;
         return (
             <div className="main__note-item" key={id}>
-                <span>{name}</span>
-                <span>{modified}</span>
-                <button type="button">Delete Note</button>
+                <Link to={`/note/${id}`}>
+                    <p>{name}</p>
+                </Link>
+                <p>{modified}</p>
+                <button type="button">Delete note</button>
             </div>
         )
     }

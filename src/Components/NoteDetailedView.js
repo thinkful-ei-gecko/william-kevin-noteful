@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class NoteDetailedView extends Component {
     render() {
@@ -7,7 +8,9 @@ export default class NoteDetailedView extends Component {
             <div className="main__note-detailed-view" key={id}>
             <span>{name}</span>
             <span>{modified}</span>
-            <button type="button">Delete Note</button>
+            <Link to='/'>
+                    <button type="button">Delete note</button>
+            </Link>
             <p>{content}</p>
         </div>
         )
