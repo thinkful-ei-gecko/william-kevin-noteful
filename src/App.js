@@ -36,28 +36,35 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              render={routeProps =>
+              render={routeProps => (
                 <FolderList
                   folders={this.state.store.folders}
                   routeProps={routeProps}
-                />}
+                />
+              )}
             />
             <Route
               path="/folder/:folderId"
-              render={routeProps =>
+              render={routeProps => (
                 <FolderList
                   folders={this.state.store.folders}
                   routeProps={routeProps}
-                />}
+                />
+              )}
             />
             <Route
               path="/note/:noteId"
               render={routeProps => (
                 <FolderDetailedView
-                  folder={this.state.store.folders.find(folder =>
-                    folder.id === this.state.store.notes.find(note => note.id === routeProps.match.params.noteId).folderId
+                  folder={this.state.store.folders.find(
+                    folder =>
+                      folder.id ===
+                      this.state.store.notes.find(
+                        note => note.id === routeProps.match.params.noteId
+                      ).folderId
                   )}
                   routeProps={routeProps}
+                  onClickCancel={() => routeProps.history.goBack()}
                 />
               )}
             />
@@ -69,7 +76,12 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <NoteList notes={this.state.store.notes} />}
+              render={routeProps => (
+                <NoteList
+                  notes={this.state.store.notes}
+                  routeProps={routeProps}
+                />
+              )}
             />
             <Route
               path="/note/:noteId"
