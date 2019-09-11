@@ -27,13 +27,16 @@ export default class App extends Component {
         <Sidebar>
           <Switch>
             <Route exact path="/"
-              render={(routeProps) =>
-                <FolderList store={this.state.store} routeProps={routeProps} />
+              render={() =>
+                <FolderList store={this.state.store} />
               }
             />
             <Route path="/folder/:folderId"
               render={(routeProps) =>
-                <FolderItem store={this.state.store} routeProps={routeProps}  />
+                <FolderItem
+                  folder={this.state.store.folders.find(folder => folder.id === routeProps.match.params.folderId)}
+                  routeProps={routeProps}
+                />
               }
             />
             <Route component={NotFound} />
@@ -42,13 +45,16 @@ export default class App extends Component {
         <Main>
           <Switch>
             <Route exact path="/"
-              render={(routeProps) =>
-                <NoteList store={this.state.store} routeProps={routeProps}  />
+              render={() =>
+                <NoteList store={this.state.store} />
               }
             />
             <Route path="/note/:noteId"
               render={(routeProps) =>
-                <NoteItem store={this.state.store} routeProps={routeProps}  />
+                <NoteItem
+                  note={this.state.store.notes.find(note => note.id === routeProps.match.params.noteId)}
+                  routeProps={routeProps}
+                />
               }
             />
             <Route component={NotFound} />

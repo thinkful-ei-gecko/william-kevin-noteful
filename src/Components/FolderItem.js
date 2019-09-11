@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 
 export default class FolderItem extends Component {
-    render() {
-        return (
-            <div className='sidebar__folder-item'>
-                <button type="button">Go back</button>
-                <h2>Folder 3</h2>
-            </div>
-        )
-    }
+  render() {
+    const { id, name } = this.props.folder;
+    return (
+      <div className='sidebar__folder-item'>
+        <button type="button">Go back</button>
+        <h2>{name}</h2>
+      </div>
+    )
+  }
 }
