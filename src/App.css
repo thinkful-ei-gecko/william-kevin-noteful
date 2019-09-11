@@ -31,3 +31,32 @@
     transform: rotate(360deg);
   }
 }
+
+.folder-list {
+  border: 1px solid black;
+  float: left;
+  list-style: none;
+  width: 40%;
+  text-align: center;
+}
+
+.folder-item {
+  text-align: center;
+  border: 2px solid black;
+  padding: 5px;
+}
+
+.note-list {
+  border: 1px solid black;
+  width: 40%;
+  float: right;
+  list-style: none;
+}
+
+.note-item {
+  border: 2px solid black;
+}
+
+.header {
+  text-align: center;
+}
