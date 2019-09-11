@@ -33,7 +33,6 @@
 }
 
 .sidebar {
-  border: 1px solid black;
   float: left;
   list-style: none;
   width: 40%;
@@ -47,7 +46,6 @@
 }
 
 .main {
-  border: 1px solid black;
   width: 40%;
   float: right;
   list-style: none;
@@ -59,4 +57,8 @@
 
 .header {
   text-align: center;
+}
+
+.main__note-item {
+  border: 1px solid black;
 }

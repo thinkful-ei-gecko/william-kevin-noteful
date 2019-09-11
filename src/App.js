@@ -4,11 +4,11 @@ import "./App.css";
 import Header from "./Components/Header";
 import Main from "./Components/Main";
 import Sidebar from "./Components/Sidebar";
-import FolderList from './Components/FolderList';
-import FolderDetailedView from './Components/FolderDetailedView';
-import NoteList from './Components/NoteList';
-import NoteDetailedView from './Components/NoteDetailedView';
-import NotFound from './Components/NotFound';
+import FolderList from "./Components/FolderList";
+import FolderDetailedView from "./Components/FolderDetailedView";
+import NoteList from "./Components/NoteList";
+import NoteDetailedView from "./Components/NoteDetailedView";
+import NotFound from "./Components/NotFound";
 
 export default class App extends Component {
   constructor(props) {
@@ -26,36 +26,65 @@ export default class App extends Component {
         <Header />
         <Sidebar>
           <Switch>
-            <Route exact path="/"
-              render={() =>
-                <FolderList store={this.state.store} />
-              }
+            <Route
+              exact
+              path="/"
+              render={() => <FolderList folders={this.state.store.folders} />}
             />
-            <Route path="/folder/:folderId"
-              render={(routeProps) =>
+            <Route
+              path="/folder/:folderId"
+              render={routeProps => (
                 <FolderDetailedView
-                  folder={this.state.store.folders.find(folder => folder.id === routeProps.match.params.folderId)}
+                  folder={this.state.store.folders.find(
+                    folder => folder.id === routeProps.match.params.folderId
+                  )}
                   routeProps={routeProps}
                 />
-              }
+              )}
+            />
+             <Route
+              path="/note/:noteId"
+              render={routeProps => (
+                <FolderList
+                  folderId={this.state.store.notes.find(
+                    note => note.id === routeProps.match.params.noteId
+                  ).folderId}
+                   routeProps={routeProps}
+                   folders={this.state.store.folders}
+                />
+              )}
             />
             <Route component={NotFound} />
           </Switch>
         </Sidebar>
         <Main>
           <Switch>
-            <Route exact path="/"
-              render={() =>
-                <NoteList store={this.state.store} />
-              }
+            <Route
+              exact
+              path="/"
+              render={() => <NoteList notes={this.state.store.notes} />}
             />
-            <Route path="/note/:noteId"
-              render={(routeProps) =>
+            <Route
+              path="/note/:noteId"
+              render={routeProps => (
                 <NoteDetailedView
-                  note={this.state.store.notes.find(note => note.id === routeProps.match.params.noteId)}
+                  note={this.state.store.notes.find(
+                    note => note.id === routeProps.match.params.noteId
+                  )}
                   routeProps={routeProps}
                 />
-              }
+              )}
+            />
+            <Route
+              path="/folder/:folderId"
+              render={routeProps => (
+                <NoteList
+                  notes={this.state.store.notes.filter(
+                    note => note.folderId === routeProps.match.params.folderId
+                  )}
+                   routeProps={routeProps}
+                />
+              )}
             />
             <Route component={NotFound} />
           </Switch>

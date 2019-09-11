@@ -3,10 +3,16 @@ import FolderItem from './FolderItem'
 
 export default class FolderList extends Component {
   render() {
-    const folderItems = this.props.store.folders.map(folder => <FolderItem folder={folder} />);
+    let folders;
+    if (this.props.folderId) {
+      folders = this.props.folders.find(folder => {
+        return folder.id === this.props.folderId
+      })
+    }
+    // const folderItems = this.props.folders.map(folder => <FolderItem folder={folder} />);
     return (
       <li className="sidebar__folder-list">
-        {folderItems}
+        {!folders ? this.props.folders.map(folder => <button>{folder.name}</button>) : <h2>{folders.name}</h2> }
       </li>
     )
   }
