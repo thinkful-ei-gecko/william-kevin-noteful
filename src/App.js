@@ -10,6 +10,13 @@ import NoteList from "./Components/NoteList";
 import NoteDetailedView from "./Components/NoteDetailedView";
 import NotFound from "./Components/NotFound";
 
+/* <FolderDetailedView
+  folder={this.state.store.folders.find(
+    folder => folder.id === routeProps.match.params.folderId
+  )}
+  routeProps={routeProps}
+  /> */
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -29,24 +36,25 @@ export default class App extends Component {
             <Route
               exact
               path="/"
-              render={() => <FolderList folders={this.state.store.folders} />}
+              render={routeProps =>
+                <FolderList
+                  folders={this.state.store.folders}
+                  routeProps={routeProps}
+                />}
             />
             <Route
               path="/folder/:folderId"
-              render={routeProps => (
-                <FolderDetailedView
-                  folder={this.state.store.folders.find(
-                    folder => folder.id === routeProps.match.params.folderId
-                  )}
+              render={routeProps =>
+                <FolderList
+                  folders={this.state.store.folders}
                   routeProps={routeProps}
-                />
-              )}
+                />}
             />
             <Route
               path="/note/:noteId"
               render={routeProps => (
-                <FolderList
-                  folders={this.state.store.folders.filter(folder => 
+                <FolderDetailedView
+                  folder={this.state.store.folders.find(folder =>
                     folder.id === this.state.store.notes.find(note => note.id === routeProps.match.params.noteId).folderId
                   )}
                   routeProps={routeProps}

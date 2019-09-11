@@ -62,3 +62,7 @@
 .main__note-item {
   border: 1px solid black;
 }
+
+.folder__button--active {
+  background-color: green;
+}
