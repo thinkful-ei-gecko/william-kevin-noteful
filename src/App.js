@@ -42,15 +42,14 @@ export default class App extends Component {
                 />
               )}
             />
-             <Route
+            <Route
               path="/note/:noteId"
               render={routeProps => (
                 <FolderList
-                  folderId={this.state.store.notes.find(
-                    note => note.id === routeProps.match.params.noteId
-                  ).folderId}
-                   routeProps={routeProps}
-                   folders={this.state.store.folders}
+                  folders={this.state.store.folders.filter(folder => 
+                    folder.id === this.state.store.notes.find(note => note.id === routeProps.match.params.noteId).folderId
+                  )}
+                  routeProps={routeProps}
                 />
               )}
             />
@@ -82,7 +81,7 @@ export default class App extends Component {
                   notes={this.state.store.notes.filter(
                     note => note.folderId === routeProps.match.params.folderId
                   )}
-                   routeProps={routeProps}
+                  routeProps={routeProps}
                 />
               )}
             />
