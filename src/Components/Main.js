@@ -5,7 +5,7 @@ import NoteItem from './NoteItem';
 export default class Main extends Component {
     render() {
         return (
-            <ul className="note-list">
+            <ul className="main">
                 <NoteList />
                 <NoteItem />
             </ul>

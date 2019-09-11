@@ -6,7 +6,7 @@ import FolderItem from './FolderItem';
 export default class Sidebar extends Component {
     render() {
         return (
-           <ul className="folder-list">
+           <ul className="sidebar">
                <FolderList />
                <FolderItem />
            </ul>

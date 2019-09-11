@@ -32,7 +32,7 @@
   }
 }
 
-.folder-list {
+.sidebar {
   border: 1px solid black;
   float: left;
   list-style: none;
@@ -40,20 +40,20 @@
   text-align: center;
 }
 
-.folder-item {
+.sidebar__folder-list {
   text-align: center;
   border: 2px solid black;
   padding: 5px;
 }
 
-.note-list {
+.main {
   border: 1px solid black;
   width: 40%;
   float: right;
   list-style: none;
 }
 
-.note-item {
+.main__note-list {
   border: 2px solid black;
 }
 
