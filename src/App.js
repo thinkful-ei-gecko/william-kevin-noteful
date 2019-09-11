@@ -5,9 +5,9 @@ import Header from "./Components/Header";
 import Main from "./Components/Main";
 import Sidebar from "./Components/Sidebar";
 import FolderList from './Components/FolderList';
-import FolderItem from './Components/FolderItem';
+import FolderDetailedView from './Components/FolderDetailedView';
 import NoteList from './Components/NoteList';
-import NoteItem from './Components/NoteItem';
+import NoteDetailedView from './Components/NoteDetailedView';
 import NotFound from './Components/NotFound';
 
 export default class App extends Component {
@@ -33,7 +33,7 @@ export default class App extends Component {
             />
             <Route path="/folder/:folderId"
               render={(routeProps) =>
-                <FolderItem
+                <FolderDetailedView
                   folder={this.state.store.folders.find(folder => folder.id === routeProps.match.params.folderId)}
                   routeProps={routeProps}
                 />
@@ -51,7 +51,7 @@ export default class App extends Component {
             />
             <Route path="/note/:noteId"
               render={(routeProps) =>
-                <NoteItem
+                <NoteDetailedView
                   note={this.state.store.notes.find(note => note.id === routeProps.match.params.noteId)}
                   routeProps={routeProps}
                 />

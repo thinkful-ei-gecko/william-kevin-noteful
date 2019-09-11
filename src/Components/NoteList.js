@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import NoteItem from './NoteItem';
 
 export default class NoteList extends Component {
     render() {
+        const noteItems = this.props.store.notes.map(note => <NoteItem note={note} />)
         return (
             <li className="main__note-list">
-                <span>Note 1</span>
-                <span>Date modified on 3rd Jan 2019</span>
-                <button type="button">Delete Note</button>
+               {noteItems}
             </li>
         )
     }
