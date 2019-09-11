@@ -28,12 +28,12 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/"
               render={(routeProps) =>
-                <FolderList store={this.state.store} {...routeProps} />
+                <FolderList store={this.state.store} routeProps={routeProps} />
               }
             />
             <Route path="/folder/:folderId"
               render={(routeProps) =>
-                <FolderItem store={this.state.store} {...routeProps}  />
+                <FolderItem store={this.state.store} routeProps={routeProps}  />
               }
             />
             <Route component={NotFound} />
@@ -43,12 +43,12 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/"
               render={(routeProps) =>
-                <NoteList store={this.state.store} {...routeProps}  />
+                <NoteList store={this.state.store} routeProps={routeProps}  />
               }
             />
             <Route path="/note/:noteId"
               render={(routeProps) =>
-                <NoteItem store={this.state.store} {...routeProps}  />
+                <NoteItem store={this.state.store} routeProps={routeProps}  />
               }
             />
             <Route component={NotFound} />
